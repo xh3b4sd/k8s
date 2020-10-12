@@ -17,3 +17,8 @@ helm -n infra install apiserver ./apiserver/
 ```
 helm -n infra install envoy ./envoy/
 ```
+
+
+```
+k -n infra patch services envoy -p '{"spec": {"type": "LoadBalancer", "externalIPs":["172.25.0.2"]}}'
+```

@@ -1,2 +1,2 @@
 name: "apiserver"
-image: "ghcr.io/xh3b4sd/apiserver:54996d7541254cfb04bc9d7e0537c249b0d71184"
+image: "ghcr.io/xh3b4sd/apiserver:e77863b8fb50d6e515d8ae01eaa88598845d3e6b"

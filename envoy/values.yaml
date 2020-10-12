@@ -1,2 +1,2 @@
 name: "envoy"
-image: "ghcr.io/xh3b4sd/envoy:4bbd9deb1a8fcb760767fbf1de870ff7e6125e13"
+image: "ghcr.io/xh3b4sd/envoy:3c9baccfd1cd3cab059c5834366ff969873eb771"

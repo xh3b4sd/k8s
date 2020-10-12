@@ -20,6 +20,6 @@ spec:
           image: "{{ .Values.image }}"
           ports:
             - name: "grpc"
-              containerPort: 50051
+              containerPort: 7777
       imagePullSecrets:
         - name: "pull-secret"

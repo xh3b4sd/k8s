@@ -15,4 +15,4 @@ spec:
     app.kubernetes.io/name: "{{ .Values.name }}"
   ports:
     - name: "grpc"
-      port: 50051
+      port: 7777

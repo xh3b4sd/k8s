@@ -20,15 +20,15 @@ spec:
           image: "{{ .Values.image }}"
           env:
             - name: "ENVOY_LISTEN_PORT"
-              value: "50051"
+              value: "7777"
             - name: "SERVICE_DISCOVERY_ADDRESS"
-              value: "{{ .Values.name }}"
+              value: "apiserver"
             - name: "SERVICE_DISCOVERY_PORT"
-              value: "50051"
+              value: "7777"
           ports:
             - name: "http"
-              containerPort: 50051
-            - name: "envoy-admin"
+              containerPort: 7777
+            - name: "admin"
               containerPort: 8081
       imagePullSecrets:
         - name: "pull-secret"
