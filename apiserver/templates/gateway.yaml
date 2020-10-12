@@ -1,0 +1,16 @@
+apiVersion: "networking.istio.io/v1alpha3"
+kind: "Gateway"
+metadata:
+  name: "{{ .Values.name }}"
+  labels:
+    app.kubernetes.io/name: "{{ .Values.name }}"
+spec:
+  selector:
+    app.kubernetes.io/name: "{{ .Values.name }}"
+  servers:
+  - port:
+      name: "grpc"
+      number: {{ .Values.port }}
+      protocol: "GRPC"
+    hosts:
+    - "172.25.0.2"
