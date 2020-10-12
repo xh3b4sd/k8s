@@ -4,6 +4,8 @@
 kind create cluster --config kind.yaml
 ```
 
+TODO with Docker for Mac increase container memory.
+
 ```
 istioctl install --set profile=minimal
 ```
@@ -25,8 +27,15 @@ helm -n infra install apiserver ./apiserver/
 k -n infra patch services apiserver -p '{"spec": {"externalIPs":["172.25.0.2"]}}'
 ```
 
+TODO check logs for all pods.
+
 ```
-$ grpcurl -plaintext -v 127.0.0.1:7777 list
-grpc.reflection.v1alpha.ServerReflection
-post.API
+k -n infra logs -f apiserver-xxxxxxxxxx-xxxxx apiserver
+```
+
+```
+while :; do grpcurl -plaintext 127.0.0.1:7777 post.API/Search; sleep 1; done
+{
+  "message": "search output"
+}
 ```
