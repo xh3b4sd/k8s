@@ -13,4 +13,4 @@ spec:
       number: {{ .Values.port }}
       protocol: "GRPC"
     hosts:
-    - "172.25.0.2"
+    - "*"
