@@ -2,15 +2,8 @@ apiVersion: "v1"
 kind: "Service"
 metadata:
   name: "{{ .Values.name }}"
-  namespace: "{{ .Release.Namespace }}"
 spec:
-  # Defining ClusterIP with None creates a headless service which does not load
-  # balance. Instead it just provides an entrypoint IP.
-  #
-  #     https://kubernetes.io/docs/concepts/services-networking/service/#headless-services
-  #
-  type: "ClusterIP"
-  clusterIP: "None"
+  type: "LoadBalancer"
   selector:
     app.kubernetes.io/name: "{{ .Values.name }}"
   ports:

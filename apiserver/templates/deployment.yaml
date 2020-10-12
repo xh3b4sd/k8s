@@ -2,11 +2,10 @@ apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
   name: "{{ .Values.name }}"
-  namespace: "{{ .Release.Namespace }}"
   labels:
     app.kubernetes.io/name: "{{ .Values.name }}"
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app.kubernetes.io/name: "{{ .Values.name }}"
@@ -20,6 +19,6 @@ spec:
           image: "{{ .Values.image }}"
           ports:
             - name: "grpc"
-              containerPort: 7777
+              containerPort: {{ .Values.port }}
       imagePullSecrets:
         - name: "pull-secret"

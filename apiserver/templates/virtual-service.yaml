@@ -1,0 +1,17 @@
+apiVersion: "networking.istio.io/v1alpha3"
+kind: "VirtualService"
+metadata:
+  name: "{{ .Values.name }}"
+  labels:
+    app.kubernetes.io/name: "{{ .Values.name }}"
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - "{{ .Values.name }}"
+  http:
+  - route:
+    - destination:
+        host: "{{ .Values.name }}"
+        port:
+          number: {{ .Values.port }}
