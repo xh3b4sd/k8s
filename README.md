@@ -30,7 +30,7 @@ k -n infra logs -f apiserver-xxxxxxxxxx-xxxxx apiserver
 ```
 
 ```
-while :; do grpcurl -plaintext 127.0.0.1:7777 post.API/Search; sleep 1; done
+$ while :; do grpcurl -plaintext 127.0.0.1:7777 post.API/Search; sleep 1; done
 {
   "message": "search output"
 }
