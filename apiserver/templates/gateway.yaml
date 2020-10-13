@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/name: "{{ .Values.name }}"
 spec:
   selector:
-    app.kubernetes.io/name: "{{ .Values.name }}"
+    istio: ingressgateway
   servers:
   - port:
       name: "grpc"

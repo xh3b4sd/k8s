@@ -7,7 +7,7 @@ kind create cluster --config kind.yaml
 TODO with Docker for Mac increase container memory.
 
 ```
-istioctl install --set profile=minimal
+istioctl install -f istio.yaml
 ```
 
 ```
@@ -21,10 +21,6 @@ helm -n infra install infra ./infra/
 
 ```
 helm -n infra install apiserver ./apiserver/
-```
-
-```
-k -n infra patch services apiserver -p '{"spec": {"externalIPs":["172.25.0.2"]}}'
 ```
 
 TODO check logs for all pods.
