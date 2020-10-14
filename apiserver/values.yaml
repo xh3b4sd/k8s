@@ -1,4 +1,3 @@
-name: "apiserver"
 port: 7777
 image:
   registry: "ghcr.io"

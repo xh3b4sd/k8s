@@ -1,11 +1,16 @@
-apiVersion: "networking.istio.io/v1alpha3"
+apiVersion: "networking.istio.io/v1beta1"
 kind: "DestinationRule"
 metadata:
-  name: "{{ .Values.name }}"
+  name: "{{ .Release.Name }}"
   labels:
-    app.kubernetes.io/name: "{{ .Values.name }}"
+    app.kubernetes.io/name: "{{ .Release.Name }}"
 spec:
-  host: "{{ .Values.name }}"
+  # In order to be most specific and prevent routing towards the wrong
+  # destination we apply the exact representation of the local DNS record.
+  #
+  #     apiserver.infra.svc.cluster.local
+  #
+  host: "{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local"
   trafficPolicy:
     loadBalancer:
       # Supported load balancing options are as follows.

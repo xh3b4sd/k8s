@@ -1,9 +1,9 @@
-apiVersion: "networking.istio.io/v1alpha3"
+apiVersion: "networking.istio.io/v1beta1"
 kind: "Gateway"
 metadata:
-  name: "{{ .Values.name }}"
+  name: "{{ .Release.Name }}"
   labels:
-    app.kubernetes.io/name: "{{ .Values.name }}"
+    app.kubernetes.io/name: "{{ .Release.Name }}"
 spec:
   selector:
     istio: "ingressgateway"
