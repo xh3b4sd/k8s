@@ -8,4 +8,15 @@ spec:
   host: "{{ .Values.name }}"
   trafficPolicy:
     loadBalancer:
-      simple: "ROUND_ROBIN"
+      # Supported load balancing options are as follows.
+      #
+      #     LEAST_CONN
+      #     PASSTHROUGH
+      #     RANDOM
+      #     ROUND_ROBIN
+      #
+      # See also the istio reference.
+      #
+      #     https://istio.io/latest/docs/reference/config/networking/destination-rule/#LoadBalancerSettings-SimpleLB
+      #
+      simple: "LEAST_CONN"
