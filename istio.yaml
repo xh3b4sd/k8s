@@ -6,14 +6,16 @@ spec:
       - name: "istio-ingressgateway"
         enabled: true
         k8s:
+          serviceAnnotations:
+            service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
           overlays:
             - apiVersion: "v1"
               kind: "Service"
               name: "istio-ingressgateway"
               patches:
-                - path: "spec.ports"
+                - path: "spec.ports[4]"
                   value:
-                    - name: "grpc"
-                      nodePort: 30007
-                      port: 30007
-                      targetPort: 7777
+                    name: "grpc"
+                    nodePort: 30007
+                    port: 30007
+                    targetPort: 7777
